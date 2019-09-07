@@ -47,30 +47,35 @@ Retorno:
 void CreateFolder(char *name) {
 
 	//get path
-	char cwd[PATH_MAX];
+	char cwd[256];
 	getcwd(cwd, sizeof(cwd));
+	printf("cwd = %s\n",cwd );
 
 	//add / to the name
-	char sname[strlen(name)+1];
-	char slash= '/';
-	snprintf(sname, strlen(name)+1, "%c%s", slash, name);
+	char sname[strlen(name)];
+	char *slash= "/";
+	snprintf(sname, strlen(name)+ strlen(slash)+1, "%s%s", slash, name);
+
+	printf("name= %s,sname= %s, largo %li\n",name,sname , strlen(name)+ strlen(slash));
 
 	//merge the strings
 	char outnam[strlen(sname)+strlen(cwd)];
-	snprintf(outnam, strlen(sname)+strlen(cwd), "%s%s", cwd, sname);
+	snprintf(outnam, strlen(sname)+strlen(cwd)+1, "%s%s", cwd, sname);
+	printf("out name= %s\n",outnam );
 
 	//create the folder if it doesnt exist
 	if (stat(outnam, &st) == -1){
 		mkdir(outnam, 0700);}
-
 }
+
 
 
 int main() {
 	char *name2;
 	//nombre del folder
-	name2="ayur  aaaa";
+	name2="mazo";
 	CreateFolder(name2);
+
    
 	return 0;
 }
