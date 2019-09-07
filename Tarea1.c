@@ -51,7 +51,7 @@ create a folder of any name:			   done
 function to create every folder:           not started
 create a text file in any folder:		   done
 function to create every "carta" in "mazo":not started
-delete a text file from a folder: 		   not started
+delete a text file from a folder: 		   in progress
 move a text file from a folder to another: done
 */
 
