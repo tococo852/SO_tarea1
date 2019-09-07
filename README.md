@@ -1,2 +1,3 @@
-# SO_tarea1
-# SO_tarea1
+#integrantes
+	nombre: Luciano Martel; Rol:201673603-4
+	nombre: Jean Aravena; Rol:??????????
