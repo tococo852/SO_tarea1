@@ -51,7 +51,7 @@ create a folder of any name:			   done
 function to create every folder:           not started
 create a text file in any folder:		   done
 function to create every "carta" in "mazo":not started
-delete a text file from a folder: 		   in progress
+delete a text file from a folder: 		   done
 move a text file from a folder to another: done
 */
 
@@ -210,6 +210,32 @@ void moveTex(char* origin, char* destiny, char* name){
 
 
 }
+
+/*
+void deletTex
+inputs:
+	name= nombre del texto a borrar
+	origin= carpeta donde se encuentra dicho texto
+	
+Funcion:
+	borra un texto name de origin
+Retorno:
+	no retorna nada
+*/
+
+void deletTex(char* origin, char* name){
+	char *path= GetTxtDirection(name, origin);
+	//printf("%s\n",oldpath );
+ 	remove(path);
+	free(path);
+
+
+
+
+
+
+}
+
 int main() {
 
 
@@ -228,8 +254,7 @@ int main() {
 	//crea el txt nombre color.txt dentro del folder
 	//CreateTexSomewhere(color,folder);
 
-	moveTex(folder1,folder2, color);
-
+	deletTex(folder2, color);
 
 
 
