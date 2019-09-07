@@ -47,12 +47,24 @@
 /*
 Goals entregable
 
-create a folder of any name:			   done
-function to create every folder:           not started
-create a text file in any folder:		   done
-function to create every "carta" in "mazo":not started
-delete a text file from a folder: 		   done
-move a text file from a folder to another: done
+----------------------------------------------------------
+crear una carpeta con cualquier nombre:	       hecho
+----------------------------------------------------------
+funcion para crear todas 
+las carpetas necesarias           		       no empezado
+----------------------------------------------------------
+crear un texto en una carpeta deseada:		   hecho
+----------------------------------------------------------
+funcion para crear el texto que debe           no empezado
+tener una "carta" en su interior
+----------------------------------------------------------
+funcion para crear todas las cartas necesarias
+en la carpeta mazo:							   no empezado
+----------------------------------------------------------
+borrar un archivo de una carpeta: 		       hecho
+----------------------------------------------------------
+mover un archivo de una carpeta a otra:        hecho
+----------------------------------------------------------
 */
 
 
@@ -233,6 +245,23 @@ void deletTex(char* origin, char* name){
 
 
 
+
+}
+/*
+void BuildFolders
+inputs:
+	no recibe
+	
+Funcion:
+	crea las 6 carpetas necesarias para el programa 
+	4 jugadores
+	1 mazo
+	1 carpeta de "ultima carta jugada"
+Retorno:
+	no retorna nada
+*/
+
+void BuildFolders(){
 
 }
 
