@@ -24,7 +24,7 @@ Goals entregable
 
 create a folder of any name:			   done
 function to create every folder:           not started
-create a text file in any folder:		   in progress
+create a text file in any folder:		   done
 function to create every "carta" in "mazo":not started
 delete a text file from a folder: 		   not started
 move a text file from a folder to another: not started
@@ -86,6 +86,57 @@ char * GetDirection(char *name, int addSlash){
 }
 
 /*
+char *GetTtxtDirection
+inputs:
+	TextName= nombre del txt que se va a crear
+	Foldername= nombre de la carpeta donde va
+Funcion:
+	genera la direcion que deberia tener el txt Text name para existir en la carpeta Foldername
+Retorno:
+	direction= un string con la direcion de txt dentro de folder
+
+
+*/
+
+char *GetTxtDirection(char *TextName,char *Foldername){
+
+	char *path= GetDirection(Foldername, 1);
+	char *tex= ".txt";
+
+	char *direction = (char *) malloc (sizeof (char) * (strlen(TextName)+strlen(path)+strlen(tex)));
+
+	snprintf(direction, strlen(TextName)+strlen(path)+strlen(tex)+2, "%s%s%s", path, TextName,tex);
+
+	return direction;
+
+
+}
+
+/*
+void CreateTexSomewhere
+inputs:
+	TextName= nombre que debe tener el archivo .txt
+	Foldername= nombre de la carpeta donde va
+Funcion:
+	crea el archivo txt de nombre TextName en la carpeta Foldername
+Retorno:
+	no retorna
+
+*/
+
+void CreateTexSomewhere(char *TextName, char *Foldername){
+	char* direct1=GetTxtDirection(TextName,Foldername);
+	printf("%s \n",direct1 );
+	FILE *OutFile = fopen(direct1,"w");
+
+	//this can be adjusted to fill the tex with a desired tex in the future
+	fprintf(OutFile,"This is a blue card");
+
+	fclose(OutFile);
+	free(direct1);
+}
+
+/*
 CreateFolder
 inputs:
 	name= nombre de la carpeta que se quiere crear
@@ -112,16 +163,21 @@ void CreateFolder(char *name) {
 
 int main() {
 
-	//obtiene el dir actual
 
 	
-	char *name2;
+	char *color;
+	char *folder;
+	//nombre del txt
+	color="turquesa";
 	//nombre del folder
-	name2="mazo";
-	CreateFolder(name2);
 
-	char* direct1= GetDirection("mazo",0);
-	printf("%s \n",direct1 );
+	folder="mazo";
+	//crea la carpeta
+	CreateFolder(folder);
+	//crea el txt nombre color.txt dentro del folder
+
+	CreateTexSomewhere(color,folder);
+
 
    
 	return 0;
