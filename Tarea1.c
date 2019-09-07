@@ -52,7 +52,7 @@ function to create every folder:           not started
 create a text file in any folder:		   done
 function to create every "carta" in "mazo":not started
 delete a text file from a folder: 		   not started
-move a text file from a folder to another: in Progress
+move a text file from a folder to another: done
 */
 
 
@@ -111,7 +111,6 @@ char * GetDirection(char *name, int addSlash){
 }
 
 /*
-char *GetTtxtDirection
 inputs:
 	TextName= nombre del txt que se va a crear
 	Foldername= nombre de la carpeta donde va
@@ -184,24 +183,52 @@ void CreateFolder(char *name) {
 
 }
 
+/*
+CreateFolder
+inputs:
+	name= nombre del texto a mover
+	origin= carpeta donde se encuentra dicho texto
+	destiny= carpeta a donde se quiere que termine el texto
+	
+Funcion:
+	mueve un texto name de origin a destiny 
+Retorno:
+	no retorna nada
+*/
+
+void moveTex(char* origin, char* destiny, char* name){
+	char *oldpath= GetTxtDirection(name, origin);
+	char *newpath=GetTxtDirection(name, destiny);
+	printf("%s\n",oldpath );
+	printf("%s\n",newpath );
+	rename(oldpath, newpath);
+	free(oldpath);
+	free(newpath);
 
 
+
+
+
+}
 int main() {
 
 
 	
 	char *color;
-	char *folder;
+	char *folder1;
+	char *folder2;
 	//nombre del txt
-	color="turquesa";
+	color="azul";
 	//nombre del folder
 
-	folder="Jugador1";
+	folder1="mazo";
+	folder2="Jugador1";
 	//crea la carpeta
-	CreateFolder(folder);
+	//CreateFolder(folder);
 	//crea el txt nombre color.txt dentro del folder
+	//CreateTexSomewhere(color,folder);
 
-	CreateTexSomewhere(color,folder);
+	moveTex(folder1,folder2, color);
 
 
 
