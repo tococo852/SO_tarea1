@@ -5,6 +5,31 @@
 #include <unistd.h>
 #include <limits.h>
 #include <string.h>
+#include <dirent.h>
+
+
+	/*
+
+	//lee los archivos de un folder "mazo"
+    DIR *d;
+
+    struct dirent *dir;
+
+    char* path=GetDirection("mazo", 1);
+
+    d = opendir(path);
+
+    if (d)
+
+    {
+        while ((dir = readdir(d)) != NULL){
+        	if (strcmp(dir->d_name, ".")!=0 && strcmp(dir->d_name, "..")!=0 ){
+            printf("%s\n ", dir->d_name);
+        	}
+        }
+        closedir(d);
+    }*/
+
 
 
 //formato: Type_repetition_color
@@ -27,7 +52,7 @@ function to create every folder:           not started
 create a text file in any folder:		   done
 function to create every "carta" in "mazo":not started
 delete a text file from a folder: 		   not started
-move a text file from a folder to another: not started
+move a text file from a folder to another: in Progress
 */
 
 
@@ -126,7 +151,7 @@ Retorno:
 
 void CreateTexSomewhere(char *TextName, char *Foldername){
 	char* direct1=GetTxtDirection(TextName,Foldername);
-	printf("%s \n",direct1 );
+	//printf("%s \n",direct1 );
 	FILE *OutFile = fopen(direct1,"w");
 
 	//this can be adjusted to fill the tex with a desired tex in the future
@@ -171,12 +196,18 @@ int main() {
 	color="turquesa";
 	//nombre del folder
 
-	folder="mazo";
+	folder="Jugador1";
 	//crea la carpeta
 	CreateFolder(folder);
 	//crea el txt nombre color.txt dentro del folder
 
 	CreateTexSomewhere(color,folder);
+
+
+
+
+
+
 
 
    
