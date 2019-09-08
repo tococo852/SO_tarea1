@@ -265,6 +265,61 @@ void BuildFolders(){
 
 }
 
+/*
+CreateMazo
+inputs:
+	Foldername= nombre de la carpeta donde va
+
+Funcion:
+	crea un mazo aleatoriamente
+Retorno:
+	no retorna nada
+*/
+
+void CreateMazo(char *Foldername){
+	
+	//formato de las cartas
+	char *color[5]={"azul","rojo","verde","amarillo","negro"};
+	char *tipo[15]={"0","1","2","3","4","5","6","7","8","9","+2","reversa","salto","colores","+4"}; 
+
+	//representacion del mazo mediante una matriz
+	int mazo[5][15]={0};
+	int i,j;
+	for(i=0;i<=4;i++){
+		for (j=0;j<=14;j++){
+			if((j==0) && (i!=4)){
+				mazo[i][j]=1;
+			}
+			if((j>=1) && (j<=12) && (i!=4)){
+				mazo[i][j]=2;
+			}
+			if ((i==4) && (j>12)){
+				mazo[i][j]=4;
+			}				
+		}
+	}
+
+	//seleccionamos aleatoriamente sobre la matriz las distintas cartas
+	srand(time(NULL));
+	int carta=1;
+	for(carta=1;carta<=108;carta++){
+		do{
+			i=rand()% 5;
+			j=rand()% 15;
+		}while(mazo[i][j]==0);
+
+		//crear la carta
+		char str[50]="";
+		strcat(str,tipo[j]);
+		strcat(str," ");
+		strcat(str,color[i]);
+		CreateTexSomewhere(str,Foldername);
+
+		//sacamos una carta
+		mazo[i][j]-=1;
+	}	
+
+
 int main() {
 
 
